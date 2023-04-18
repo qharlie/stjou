@@ -1,0 +1,53 @@
+name: STJ Website
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+env:
+  NODE_OPTIONS: --max-old-space-size=4096
+  TZ: America/Chicago
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci --legacy-peer-deps
+        working-directory: ./website
+#      - run: npm run test
+#        working-directory: ./website
+      - run: npm run build
+        working-directory: ./website
+      - run: tar czf dist.tgz dist
+        working-directory: ./website
+      - run: tar czf public.tgz public
+        working-directory: ./
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            ./website/dist.tgz
+            ./public.tgz
+      - name: copy dist and public to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.STJ_HOST }}
+          username: ${{ secrets.STJ_USERNAME }}
+          port: ${{ secrets.STJ_PORT }}
+          key: ${{ secrets.STJ_KEY }}
+          source: "public.tgz,website/dist.tgz"
+          target: "~/stj/"
