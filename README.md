@@ -2,7 +2,7 @@
 
 # <a href="https://stjou.com">stjou.com</a> - build 1.36
 
-<h4>Finally an open source trading journal you can run locally, or on the web.</h4>
+<h4>An open source trading journal you can run locally, <a href="https://stjou.com">or use on the web</a>.</h4>
 
 
 <h5>
