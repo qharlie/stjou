@@ -6,16 +6,7 @@
 
 
 <h5>
-StJou is a free stock trading journal that runs entirely in the browser and has no backend server component.
-
-This is accomplished by using LocalStorage to store the entire state of the running application.  LocalStorage only has 5MB of storage, so the import data itself is kept in IndexeDB , a database that ships with Chrome and Webkit.
-</h5>
+  Thanks to the magic of <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexDB</a> this app runs entirely in the browser ( file uploads are not to any backend , the files are are read only into local storage and indexdb).  There are build targets for native binaries for windows, macos, and linux which I was hoping to monetize but now my hopes and dreams are dead and I hate you for it
+  </h5>
 
 
-
-Components Used:
-- Vue 2 [website](https://vuejs.org/)
-- Chart.js [website](https://www.chartjs.org/)
-- Bootstrap [website](https://getbootstrap.com/)
-- Full Calendar [website](https://fullcalendar.io/)
-- Jataframe [website](https://github.com/charlie-sanders/jataframe).
