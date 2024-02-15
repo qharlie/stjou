@@ -1,6 +1,6 @@
 # Stjou - An Open Source Stock Trading Journal
 
-# <a href="https://stjou.com">stjou.com</a> - build 1.37 , 2023.07.25
+# <a href="https://stjou.com">stjou.com</a> - build 1.44 , 2024.02.14
 
 <h4>An open source trading journal you can run locally, <a href="https://stjou.com">or use on the web</a>.</h4>
 
