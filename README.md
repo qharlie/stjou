@@ -6,7 +6,7 @@
 
 
 <h5>
-  Thanks to the magic of <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API">IndexedDB</a> this app runs entirely in the browser ( file uploads are not to any backend , the files are are read only into local storage and indexeddb).  There are build targets for native binaries for windows, macos, and linux.
+  Stjou runs entirely in the browser ( file uploads are not to any backend , the files are are read only into local storage and indexeddb). The assets are served as a static website.  There are build targets for native binaries for windows, macos, and linux using Electron.
   </h5>
 
 
